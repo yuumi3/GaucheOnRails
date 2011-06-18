@@ -1,0 +1,20 @@
+<html>
+<body>
+<h2>Editing <%=name%></h2>
+
+[%= (form-tag :action "update" :id @<%=name%>) %] 
+  [%= (cont/form-tag @cont@) %]
+
+<% (for-each (lambda(col) (let1 col-cap (string-titlecase col) %>
+  <p><label for="<%=name%>_<%=col%>"><%=col-cap%></label><br/>
+  [%= (text-field @<%=name%> "<%=col%>")  %]</p>
+<% )) columns) %>
+
+  [%= (submit-tag "Edit") %]
+[%= (form-end) %]
+
+[%= (link-to "Show" :action "show" :id @<%=name%>) %] |
+[%= (link-to "Back" :action "index") %]
+
+</body>
+</html>

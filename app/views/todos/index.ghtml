@@ -1,0 +1,20 @@
+<h1>Listing todos</h1>
+
+<table>
+  <tr>
+    <th>Due</th>
+    <th>Task</th>
+  </tr>
+
+<% (for-each (lambda(todo) %>
+  <tr>
+    <td><%= (ref todo 'due) %></td>
+    <td><%= (ref todo 'task) %></td>
+    <td><%= (link-to "Show" :action "show" :id todo) %></td>
+    <td><%= (link-to "Edit" :action "edit" :id todo) %></td>
+    <td><%= (link-to "Destory" :action "destory" :id todo :confirm "Are you sure?") %></td>
+  </tr>
+<% ) @todos) %>
+</table>
+
+<%= (link-to "New todo" :action "new") %>

@@ -1,0 +1,22 @@
+<h1>Listing <%=names%></h1>
+
+<table>
+  <tr>
+<% (for-each (lambda(col) (let1 col-cap (string-titlecase col) %>
+    <th><%=col-cap%></th>
+<% )) columns) %>
+  </tr>
+
+[% (for-each (lambda(todo) %]
+  <tr>
+<% (for-each (lambda(col) (let1 col-cap (string-titlecase col) %>
+    <td>[%= (ref <%=name%> '<%=col%>) %]</td>
+<% )) columns) %>
+    <td>[%= (link-to "Show" :action "show" :id <%=name%>) %]</td>
+    <td>[%= (link-to "Edit" :action "edit" :id <%=name%>) %]</td>
+    <td>[%= (link-to "Destory" :action "destory" :id <%=name%> :confirm "Are you sure?") %]</td>
+  </tr>
+[% ) @<%=names%>) %]
+</table>
+
+[%= (link-to "New <%=name%>" :action "new") %]

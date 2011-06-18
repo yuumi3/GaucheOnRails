@@ -1,0 +1,17 @@
+<html>
+<body>
+<h2>Show <%=name%></h2>
+
+<% (for-each (lambda(col) (let1 col-cap (string-titlecase col) %>
+<p>
+  <b><%=col-cap%>:</b>
+  [%= (<%=col%>-of @<%=name%>) %]
+</p>
+
+<% )) columns) %>
+
+[%= (link-to "Edit" :action "edit" :id @<%=name%>) %] |
+[%= (link-to "Back" :action "index") %]
+
+</body>
+</html>

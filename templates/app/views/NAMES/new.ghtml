@@ -1,0 +1,19 @@
+<html>
+<body>
+<h2>New <%=name%></h2>
+
+[%= (form-tag :action "create") %] 
+  [%= (cont/form-tag @cont@) %]
+
+<% (for-each (lambda(col) (let1 col-cap (string-titlecase col) %>
+  <p><label for="<%=name%>_<%=col%>"><%=col-cap%></label><br/>
+  [%= (text-field "<%=name%>" "<%=col%>")  %]</p>
+<% )) columns) %>
+
+  [%= (submit-tag "Create") %]
+[%= (form-end) %]
+
+[%= (link-to "Back" :action "index") %]
+
+</body>
+</html>

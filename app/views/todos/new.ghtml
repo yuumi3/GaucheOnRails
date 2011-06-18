@@ -1,0 +1,20 @@
+<html>
+<body>
+<h2>New todo</h2>
+
+<%= (form-tag :action "create") %> 
+  <%= (cont/form-tag @cont@) %>
+
+  <p><label for="todo_due">Due</label><br/>
+  <%= (text-field "todo" "due")  %></p>
+
+  <p><label for="todo_task">Task</label><br/>
+  <%= (text-field "todo" "task")  %></p>
+
+  <%= (submit-tag "Create") %>
+<%= (form-end) %>
+
+<%= (link-to "Back" :action "index") %>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+== Gauche on Rails
+
+Gaucheを使ったRuby on RailsのようなWebアプリケーションフレームワークです。
+
+完成品ではありません！
+
+詳細は Blog[http://d.hatena.ne.jp/yuum3/archive?word=%2A%5BGauche%5D] の記事を参考にして下さい。
+
+
+=== License
+
+MIT license

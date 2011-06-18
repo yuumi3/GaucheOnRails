@@ -1,0 +1,21 @@
+<html>
+<body>
+<h2>Edit todo</h2>
+
+<%= (form-tag :action "update" :id @todo) %> 
+  <%= (cont/form-tag @cont@) %>
+
+  <p><label for="todo_due">Due</label><br/>
+  <%= (text-field @todo "due")  %></p>
+
+  <p><label for="todo_task">Task</label><br/>
+  <%= (text-field @todo "task")  %></p>
+
+  <%= (submit-tag "Edit") %>
+<%= (form-end) %>
+
+<%= (link-to "Show" :action "show" :id @todo) %> |
+<%= (link-to "Back" :action "index") %>
+
+</body>
+</html>

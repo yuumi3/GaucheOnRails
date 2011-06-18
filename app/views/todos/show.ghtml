@@ -1,0 +1,20 @@
+<html>
+<body>
+<h2>show</h2>
+
+<p>
+  <b>Due:</b>
+  <%= (due-of @todo) %>
+</p>
+
+<p>
+  <b>Task:</b>
+  <%= (task-of @todo) %>
+</p>
+
+
+<%= (link-to "Edit" :action "edit" :id @todo) %> |
+<%= (link-to "Back" :action "index") %>
+
+</body>
+</html>

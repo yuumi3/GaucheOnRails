@@ -1,0 +1,67 @@
+
+
+app/controllers/application-controller.scm
+               todos-controller.scm
+
+app/models/todo.scm
+
+app/views/todos/index.ghtml
+              show.ghtml
+              edit.ghtml
+              new.ghtml
+app/view/layouts/todo.ghtml
+script/server
+
+lib/rails/active-record.scm
+          action-controller.scm
+          action-view.scm
+	  dispatcher.scm
+          util.scm
+          server.scm
+          egosh.scm
+
+
+
+====================================================================================
+
+<table>
+ <% (dotimes (n 10) %>
+  <tr><td> <%=(+ 1 n)%> </td></tr>
+ <% ) %>
+</table>
+
+(call-with-output-string (lambda(p)
+  (display "<table>\n" p)
+  (dotimes (n 10)
+    (display "  <tr><td>" p)
+    (display (+ n 1) p)
+    (display "</td></tr>\n" p))
+  (display "<table>\n" p)))
+     
+"<table>\n<% (dotimes (n 10) %><tr><td> <%=(+ n 1)%> </td></tr>\n<% ) %>\n</table>\n"
+
+
+Ruby
+
+<table>
+ <% 10.times do |n| %>
+  <tr><td> <%= n + 1%> </td></tr>
+ <% end %>
+</table>
+
+"<table>\n<% 10.times do |n| %>\n<tr><td> <%= n + 1%> </td></tr>\n<% end %>\n</table>\n"
+
+>> $e = ERB.new "<table>\n<% 10.times do |n| %><tr><td> <%= n + 1%> </td></tr>\n<% end %></table>\n"
+
+>> $e.src
+=> 
+_erbout = ''
+_erbout.concat "<table>\n"
+10.times do |n| 
+   _erbout.concat "<tr><td> "
+   _erbout.concat(( n + 1).to_s)
+   _erbout.concat " </td></tr>\n"
+end
+_erbout.concat "</table>\n"
+_erbout
+
